@@ -4,12 +4,18 @@ import { Button } from "@/components/ui/button";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { Links } from "@/data/links";
 import { useToast } from "@/hooks/use-toast";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
-const Navbar = () => {
+interface NavbarProps {
+  onLogoClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+}
+
+const Navbar = ({ onLogoClick }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const resumeUrl = Links.resume;
   const { toast } = useToast();
+  const { scrollToSection } = useSmoothScroll();
 
   const handledownload = () => {
     toast({
@@ -42,6 +48,15 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const handleNavLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
+    e.preventDefault();
+    scrollToSection(sectionId);
+    setMenuOpen(false);
+  };
+
   return (
     <nav
       className={cn(
@@ -54,7 +69,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center">
-            <a href="/">
+            <a href="/" onClick={onLogoClick}>
               <span className="text-xl font-bold text-primary">AZ.</span>
             </a>
           </div>
@@ -66,7 +81,8 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium hover:text-primary transition-colors"
+                  onClick={(e) => handleNavLinkClick(e, link.href.substring(1))}
+                  className="text-sm font-medium hover:text-primary transition-colors cursor-pointer"
                 >
                   {link.name}
                 </a>
@@ -135,8 +151,8 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-2 text-base font-medium hover:text-primary transition-colors"
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => handleNavLinkClick(e, link.href.substring(1))}
+                className="block px-3 py-2 text-base font-medium hover:text-primary transition-colors cursor-pointer"
               >
                 {link.name}
               </a>

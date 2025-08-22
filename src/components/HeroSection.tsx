@@ -3,8 +3,19 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { Links } from "@/data/links";
 import DeveloperBoard from "./DeveloperBoard";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 const HeroSection = () => {
+  const { scrollToSection } = useSmoothScroll();
+
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
+    e.preventDefault();
+    scrollToSection(sectionId);
+  };
+
   return (
     <section
       id="home"
@@ -100,7 +111,11 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="touch-target"
               >
-                <a href="#contact" aria-label="Go to contact section">
+                <a
+                  href="#contact"
+                  aria-label="Go to contact section"
+                  onClick={(e) => handleAnchorClick(e, "contact")}
+                >
                   <Button className="min-w-[120px] py-3 text-base">
                     Contact Me
                   </Button>
@@ -113,7 +128,11 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="touch-target"
               >
-                <a href="#projects" aria-label="Go to projects section">
+                <a
+                  href="#projects"
+                  aria-label="Go to projects section"
+                  onClick={(e) => handleAnchorClick(e, "projects")}
+                >
                   <Button
                     variant="outline"
                     className="min-w-[120px] py-3 text-base"
