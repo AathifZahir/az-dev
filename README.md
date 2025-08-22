@@ -14,7 +14,7 @@
 
 ## ✨ Overview
 
-Welcome to the personal portfolio of **Aathif Zahir**, a passionate Software Engineering undergraduate with a strong focus on **full-stack web development**. This portfolio is a reflection of my journey, skills, projects, and achievements — built with a modern tech stack and polished UI/UX.
+Welcome to the personal portfolio of **Aathif Zahir**, a passionate Software Engineering undergraduate with a strong focus on **full-stack web development**. Currently interning as a **Full Stack Developer**, I bring hands-on experience in building modern web applications and a deep understanding of both frontend and backend technologies. This portfolio is a reflection of my journey, skills, projects, and achievements — built with a modern tech stack and polished UI/UX.
 
 ---
 
@@ -31,14 +31,14 @@ Welcome to the personal portfolio of **Aathif Zahir**, a passionate Software Eng
 
 ## 🛠️ Tech Stack
 
-| Category        | Tech Used                                      |
-|----------------|------------------------------------------------|
-| Frontend       | React (TypeScript), Vite                       |
-| Styling        | Tailwind CSS, Custom & Radix UI Components     |
-| State & Routing| React Query, React Router DOM                  |
-| Animations     | Framer Motion                                  |
-| Form Handling  | Web3Forms API                                  |
-| Linting/Format | ESLint, Prettier                               |
+| Category        | Tech Used                                  |
+| --------------- | ------------------------------------------ |
+| Frontend        | React (TypeScript), Vite                   |
+| Styling         | Tailwind CSS, Custom & Radix UI Components |
+| State & Routing | React Query, React Router DOM              |
+| Animations      | Framer Motion                              |
+| Form Handling   | Web3Forms API                              |
+| Linting/Format  | ESLint, Prettier                           |
 
 ---
 
@@ -71,7 +71,7 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/aathifzahir/portfolio.git
+git clone https://github.com/AathifZahir/az-dev.git
 cd portfolio
 
 # Install dependencies
@@ -114,7 +114,7 @@ vercel deploy --prod
 
 I’m open to collaborations, opportunities, or just a chat!
 
-- 📧 [aathif@example.com](mailto:aathif@example.com)
+- 📧 [aathif@example.com](mailto:aathifzahir12@gmail.com)
 - 💼 [LinkedIn](https://linkedin.com/in/aathifzahir)
 - 💻 [GitHub](https://github.com/aathifzahir)
 
