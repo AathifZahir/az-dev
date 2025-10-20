@@ -180,7 +180,7 @@ const NotFound = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-sm text-muted-foreground mt-8"
         >
-          💡 Pro tip: Check the URL or use the navigation menu above!
+          Pro tip: Check the URL or use the navigation menu above!
         </motion.p>
       </div>
     </div>

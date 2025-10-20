@@ -153,12 +153,18 @@
 
   html {
     scroll-behavior: smooth;
-    /* Additional smooth scrolling properties for better cross-browser support */
-    -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+    /* iOS momentum scrolling for native feel */
+    -webkit-overflow-scrolling: touch;
     scroll-padding-top: 80px; /* Account for fixed navbar */
   }
 
-  /* Ensure smooth scrolling works on all elements */
+  /* Enable smooth scrolling with momentum on body */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain; /* Prevent overscroll bounce on body */
+  }
+
+  /* Ensure smooth scrolling works on all scrollable elements */
   * {
     scroll-behavior: smooth;
   }
@@ -171,6 +177,16 @@
   /* Ensure sections have proper scroll margin for smooth scrolling */
   section[id] {
     scroll-margin-top: 80px;
+  }
+
+  /* Enable momentum scrolling for all scrollable containers */
+  [class*="overflow-"],
+  .overflow-auto,
+  .overflow-scroll,
+  .overflow-x-auto,
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 }
 

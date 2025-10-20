@@ -23,9 +23,25 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
   useEffect(() => {
     const root = window.document.documentElement;
+
+    // Remove all theme classes first
     root.classList.remove("theme-dark", "theme-blue", "theme-purple");
+
+    // Force a reflow to ensure the class removal is processed
+    void root.offsetHeight;
+
+    // Add the new theme class
     root.classList.add(`theme-${theme}`);
+
+    // Save to localStorage
     localStorage.setItem("theme", theme);
+
+    // Force repaint of all elements with CSS variables
+    requestAnimationFrame(() => {
+      document.body.style.display = "none";
+      void document.body.offsetHeight;
+      document.body.style.display = "";
+    });
   }, [theme]);
 
   return (
