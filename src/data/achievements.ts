@@ -3,17 +3,16 @@ import { Trophy, Star, Award } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
 export type Achievement = {
-  id: number;
   title: string;
   type: "competition" | "academic" | "certification";
   year: string;
   description: string;
   icon: LucideIcon;
+  link?: string;
 };
 
 export const achievements: Achievement[] = [
   {
-    id: 1,
     title: "2nd Place - Algothon Codefest",
     type: "competition",
     year: "2024",
@@ -21,7 +20,6 @@ export const achievements: Achievement[] = [
     icon: Trophy,
   },
   {
-    id: 2,
     title: "3rd Place - INTELLECT 1.0 Hackathon",
     type: "competition", 
     year: "2024",
@@ -29,7 +27,6 @@ export const achievements: Achievement[] = [
     icon: Trophy,
   },
   {
-    id: 3,
     title: "Dean's List",
     type: "academic",
     year: "2023",
@@ -37,27 +34,58 @@ export const achievements: Achievement[] = [
     icon: Star,
   },
   {
-    id: 4,
-    title: "Python Certification",
+    title: "ClickUp Novice Certificate",
     type: "certification",
-    year: "2023",
-    description: "Completed comprehensive Python programming certification.",
+    year: "2025",
+    description: "Completed ClickUp Novice certification demonstrating proficiency in project management tools.",
     icon: Award,
+    link: "https://verify.skilljar.com/c/wfoiw7jffkho",
   },
   {
-    id: 5,
-    title: "SQL Certification",
+    title: "ChatGPT Prompt Engineering Basics",
     type: "certification",
-    year: "2022",
-    description: "Earned certification in SQL database management and querying.",
+    year: "2025",
+    description: "Specialized in AI prompt engineering, productivity improvement, and AI-driven content creation.",
     icon: Award,
+    link: "https://www.udemy.com/certificate/UC-23a7ee26-0aaf-468f-b98a-25d94c32623b/",
   },
   {
-    id: 6,
-    title: "Prompt Engineering Certification",
+    title: "Software Engineer Intern - HackerRank",
     type: "certification",
-    year: "2023",
-    description: "Completed specialized training in AI prompt engineering techniques.",
+    year: "2025",
+    description: "Demonstrated proficiency in MySQL, problem solving, and code refactoring.",
     icon: Award,
+    link: "https://www.hackerrank.com/certificates/8f2f3cc718d4",
+  },
+  {
+    title: "Explore Core Data Concepts - Microsoft",
+    type: "certification",
+    year: "2024",
+    description: "Earned Microsoft certification in data structures and data analysis fundamentals.",
+    icon: Award,
+    link: "https://learn.microsoft.com/en-us/users/aathifzahir-4391/achievements/j9fvfzgt",
+  },
+  {
+    title: "Python for Beginners - University of Moratuwa",
+    type: "certification",
+    year: "2024",
+    description: "Comprehensive Python certification covering OOP, data structures, algorithms, and debugging.",
+    icon: Award,
+    link: "https://open.uom.lk/verify",
+  },
+  {
+    title: "SQL (Basic) - HackerRank",
+    type: "certification",
+    year: "2024",
+    description: "Earned HackerRank SQL certification demonstrating database management skills.",
+    icon: Award,
+    link: "https://www.hackerrank.com/certificates/722758e3e085",
+  },
+  {
+    title: "SLIITXtreme 3.0 Participant",
+    type: "competition",
+    year: "2024",
+    description: "Participated in competitive programming hackathon focusing on problem-solving skills.",
+    icon: Trophy,
   },
 ];

@@ -1,18 +1,28 @@
-import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Grip } from "lucide-react";
+import { ChevronLeft, ChevronRight, Grip, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { achievements } from "@/data/achievements";
+import { useMomentumScroll } from "@/hooks/use-momentum-scroll";
 
 const AchievementsSection = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const {
+    scrollRef: scrollContainerRef,
+    handleMouseDown,
+    handleMouseMove,
+    handleMouseUp,
+    handleMouseLeave,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useMomentumScroll({
+    damping: 0.95,
+    velocityMultiplier: 20,
+    minVelocity: 0.1,
+  });
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 300;
+      const scrollAmount = 320;
       const newScrollPosition =
         direction === "left"
           ? scrollContainerRef.current.scrollLeft - scrollAmount
@@ -25,39 +35,8 @@ const AchievementsSection = () => {
     }
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollContainerRef.current) return;
-
-    setIsDragging(true);
-    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-    setScrollLeft(scrollContainerRef.current.scrollLeft);
-
-    document.body.style.cursor = "grabbing";
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-
-    document.body.style.cursor = "default";
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollContainerRef.current) return;
-
-    const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-  };
-
-  const handleMouseLeave = () => {
-    if (isDragging) {
-      setIsDragging(false);
-      document.body.style.cursor = "default";
-    }
-  };
-
   return (
-    <section id="achievements" className="pt-14 bg-background/50">
+    <section id="achievements" className=" bg-background/50">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,16 +81,23 @@ const AchievementsSection = () => {
 
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto pb-6 space-x-6 snap-x scrollbar-hidden cursor-grab"
+          className="flex overflow-x-auto pb-6 space-x-6 scrollbar-hidden cursor-grab active:cursor-grabbing"
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{
+            scrollBehavior: "smooth",
+            WebkitOverflowScrolling: "touch",
+          }}
         >
-          {achievements.map((achievement) => (
+          {achievements.map((achievement, index) => (
             <motion.div
-              key={achievement.id}
-              className="min-w-[300px] max-w-[300px] bg-card p-6 rounded-lg shadow-sm border border-border snap-center select-none"
+              key={index}
+              className="min-w-[350px] max-w-[350px] bg-card p-6 rounded-lg shadow-sm border border-border select-none"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
@@ -119,7 +105,10 @@ const AchievementsSection = () => {
               whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
-                transition: { duration: 0.2 },
+                transition: {
+                  duration: 0.3,
+                  ease: [0.4, 0, 0.2, 1], // Custom easing curve
+                },
               }}
             >
               <div className="flex items-center mb-4">
@@ -146,18 +135,31 @@ const AchievementsSection = () => {
               <p className="text-base font-normal text-muted-foreground mb-4">
                 {achievement.description}
               </p>
-              <span
-                className={`text-xs px-2 py-1 rounded-full ${
-                  achievement.type === "competition"
-                    ? "bg-yellow-100/80 text-yellow-800 dark:bg-yellow-950 dark:text-yellow-300"
-                    : achievement.type === "academic"
-                    ? "bg-blue-100/80 text-blue-800 dark:bg-blue-950 dark:text-blue-300"
-                    : "bg-green-100/80 text-green-800 dark:bg-green-950 dark:text-green-300"
-                }`}
-              >
-                {achievement.type.charAt(0).toUpperCase() +
-                  achievement.type.slice(1)}
-              </span>
+              <div className="flex items-center justify-between">
+                <span
+                  className={`text-xs px-2 py-1 rounded-full ${
+                    achievement.type === "competition"
+                      ? "bg-yellow-100/80 text-yellow-800 dark:bg-yellow-950 dark:text-yellow-300"
+                      : achievement.type === "academic"
+                      ? "bg-blue-100/80 text-blue-800 dark:bg-blue-950 dark:text-blue-300"
+                      : "bg-green-100/80 text-green-800 dark:bg-green-950 dark:text-green-300"
+                  }`}
+                >
+                  {achievement.type.charAt(0).toUpperCase() +
+                    achievement.type.slice(1)}
+                </span>
+                {achievement.link && (
+                  <a
+                    href={achievement.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-primary hover:underline flex items-center gap-1 p-3"
+                  >
+                    View Certificate
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>

@@ -11,7 +11,9 @@ import AchievementsSection from "@/components/AchievementsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import ScrollToTop from "@/components/ScrollToTop";
 import Seo from "@/components/Seo";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 const sections = [
   "home",
@@ -24,6 +26,7 @@ const sections = [
 
 const Index = () => {
   const navigate = useNavigate();
+  const { scrollToSection } = useSmoothScroll();
 
   useEffect(() => {
     const handleHashChange = (hash) => {
@@ -53,11 +56,16 @@ const Index = () => {
     return () => observer.disconnect();
   }, [navigate]);
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    scrollToSection("home");
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Seo />
       <ScrollProgressBar />
-      <Navbar />
+      <Navbar onLogoClick={handleLogoClick} />
       <Scrollspy items={sections} currentClassName="active" offset={-50}>
         <HeroSection />
         <AboutSection />
@@ -67,6 +75,7 @@ const Index = () => {
         <ContactSection />
       </Scrollspy>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
