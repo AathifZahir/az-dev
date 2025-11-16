@@ -1,4 +1,4 @@
-# 🚀 Aathif Zahir – Full Stack Developer Portfolio
+# Aathif Zahir – Full Stack Developer Portfolio
 
 [![Portfolio](https://img.shields.io/badge/Live%20Portfolio-blueviolet?style=for-the-badge&logo=vercel&logoColor=white)](https://aathifzahir.dev)
 [![GitHub Repo](https://img.shields.io/badge/Repo-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aathifzahir/portfolio)
@@ -12,24 +12,24 @@
 
 ![Portfolio Screenshot](./public/screenshot.png)
 
-## ✨ Overview
+## Overview
 
 Welcome to the personal portfolio of **Aathif Zahir**, a passionate Software Engineering undergraduate with a strong focus on **full-stack web development**. Currently interning as a **Full Stack Developer**, I bring hands-on experience in building modern web applications and a deep understanding of both frontend and backend technologies. This portfolio is a reflection of my journey, skills, projects, and achievements — built with a modern tech stack and polished UI/UX.
 
 ---
 
-## 🎯 Features
+## Features
 
-- 📌 **Dynamic Content Sections** – About, Skills, Projects, Achievements, and Contact.
-- 💡 **Responsive UI** – Optimized across mobile, tablet, and desktop screens.
-- 🎨 **Theme Support** – Toggle between Light, Dark, and Purple themes.
-- ✨ **Smooth Animations** – Powered by Framer Motion.
-- ⚡ **Performance Focused** – Lazy loading with `react-lazy-load-image-component`.
-- 📬 **Functional Contact Form** – Integrated with Web3Forms API.
+- **Dynamic Content Sections** – About, Skills, Projects, Achievements, and Contact.
+- **Responsive UI** – Optimized across mobile, tablet, and desktop screens.
+- **Theme Support** – Toggle between Light, Dark, and Purple themes.
+- **Smooth Animations** – Powered by Framer Motion.
+- **Performance Focused** – Lazy loading with `react-lazy-load-image-component`.
+- **Functional Contact Form** – Integrated with Web3Forms API.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category        | Tech Used                                  |
 | --------------- | ------------------------------------------ |
@@ -42,7 +42,7 @@ Welcome to the personal portfolio of **Aathif Zahir**, a passionate Software Eng
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -58,16 +58,16 @@ src/
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 > Run this project locally in a few simple steps:
 
-### 🔧 Prerequisites
+### Prerequisites
 
 - Node.js v16+
 - npm or yarn
 
-### 🚀 Installation & Development
+### Installation & Development
 
 ```bash
 # Clone the repository
@@ -83,22 +83,14 @@ npm run dev
 
 Visit: `http://localhost:8080`
 
-### 🏗️ Production Build
+### Production Build
 
 ```bash
 npm run build      # Builds the project
 npm run preview    # Serves the production build locally
 ```
 
-### 🧹 Code Quality
-
-```bash
-npm run lint       # Lints your code with ESLint
-```
-
----
-
-## 🌍 Deployment
+## Deployment
 
 You can deploy this project on any modern static hosting service like **Vercel**, **Netlify**, or **GitHub Pages**.
 
@@ -110,7 +102,7 @@ vercel deploy --prod
 
 ---
 
-## 📬 Contact Me
+## Contact Me
 
 I’m open to collaborations, opportunities, or just a chat!
 
