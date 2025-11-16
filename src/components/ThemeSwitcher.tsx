@@ -1,50 +1,50 @@
 import { useTheme } from "./ThemeProvider";
 import { Button } from "@/components/ui/button";
-import { Moon, Palette, Droplet } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Moon, Sun } from "lucide-react";
 import { motion } from "framer-motion";
 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
 
-  const themes = [
-    { name: "blue", icon: <Droplet className="h-4 w-4" />, label: "Light" },
-    { name: "dark", icon: <Moon className="h-4 w-4" />, label: "Dark" },
-    { name: "purple", icon: <Palette className="h-4 w-4" />, label: "Purple" },
-  ];
+  // Map themes: "blue" is light, "dark" is dark
+  // If theme is "purple", treat it as "dark" for display purposes
+  const isDark = theme === "dark" || theme === "purple";
+  const isLight = theme === "blue";
+
+  const toggleTheme = () => {
+    // Toggle between light (blue) and dark
+    if (isDark) {
+      setTheme("blue");
+    } else {
+      setTheme("dark");
+    }
+  };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full">
-          <motion.div whileHover={{ rotate: 15 }} whileTap={{ scale: 0.9 }}>
-            {theme === "dark" && <Moon className="h-4 w-4" />}
-            {theme === "blue" && <Droplet className="h-4 w-4 text-blue-500" />}
-            {theme === "purple" && <Palette className="h-4 w-4" />}
-          </motion.div>
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="space-y-1">
-        {themes.map((t) => (
-          <DropdownMenuItem
-            key={t.name}
-            onClick={() => setTheme(t.name as any)}
-            className={theme === t.name ? "bg-accent " : ""}
-          >
-            <div className="flex items-center ">
-              {t.icon}
-              <span className="ml-2">{t.label}</span>
-            </div>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button
+      variant="ghost"
+      size="icon"
+      className="h-9 w-9 rounded-full"
+      onClick={toggleTheme}
+      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+    >
+      <motion.div
+        whileHover={{ rotate: 15 }}
+        whileTap={{ scale: 0.9 }}
+        key={isDark ? "dark" : "light"}
+        initial={{ rotate: -90, opacity: 0 }}
+        animate={{ rotate: 0, opacity: 1 }}
+        exit={{ rotate: 90, opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        {isDark ? (
+          <Moon className="h-4 w-4" />
+        ) : (
+          <Sun className="h-4 w-4" />
+        )}
+      </motion.div>
+      <span className="sr-only">Toggle theme</span>
+    </Button>
   );
 };
 
