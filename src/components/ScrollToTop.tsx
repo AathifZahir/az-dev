@@ -33,7 +33,7 @@ const ScrollToTop = () => {
         >
           <div
             onClick={scrollToTop}
-            className="h-12 w-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-primary hover:bg-primary/90 cursor-pointer flex items-center justify-center"
+            className="h-12 w-12 rounded-full transition-all duration-300 bg-primary hover:bg-primary/90 cursor-pointer flex items-center justify-center shadow-[0_0_15px_rgba(var(--primary-rgb),0.4)] hover:shadow-[0_0_25px_rgba(var(--primary-rgb),0.6)]"
             aria-label="Scroll to top"
             role="button"
             tabIndex={0}
