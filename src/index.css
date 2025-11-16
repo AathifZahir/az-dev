@@ -18,6 +18,7 @@
 
     --primary: 220 70% 50%;
     --primary-foreground: 210 40% 98%;
+    --primary-rgb: 59, 130, 246; /* RGB values for glow effect */
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 220 70% 40%;
@@ -63,6 +64,7 @@
 
     --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-rgb: 96, 165, 250; /* RGB values for glow effect */
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -108,6 +110,7 @@
 
     --primary: 265 70% 50%;
     --primary-foreground: 260 40% 98%;
+    --primary-rgb: 147, 51, 234; /* RGB values for glow effect */
 
     --secondary: 260 40% 96.1%;
     --secondary-foreground: 265 70% 40%;
@@ -215,11 +218,6 @@
 
   .highlight-text {
     @apply text-primary relative inline-block;
-  }
-
-  .highlight-text::after {
-    content: "";
-    @apply absolute -bottom-1 left-0 w-full h-1 bg-primary/20 rounded;
   }
 
   .card-hover {

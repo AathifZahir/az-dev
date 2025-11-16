@@ -18,6 +18,10 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     // Retrieve and validate the saved theme during initialization
     const savedTheme = localStorage.getItem("theme") as Theme;
     const validThemes: Theme[] = ["blue", "dark", "purple"];
+    // If saved theme is purple, convert it to dark (purple is disabled from UI)
+    if (savedTheme === "purple") {
+      return "dark";
+    }
     return validThemes.includes(savedTheme) ? savedTheme : "dark";
   });
 
