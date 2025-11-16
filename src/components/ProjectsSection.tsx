@@ -28,10 +28,13 @@ const ProjectsSection = () => {
           {projects.slice(0, visibleProjects).map((project, index) => (
             <div
               key={project.id}
-              className="bg-card rounded-lg overflow-hidden shadow-sm border border-border card-hover"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="bg-card rounded-lg shadow-sm border-[2px] border-white/10 backdrop-blur-sm card-hover m-0.5"
+              style={{
+                animationDelay: `${index * 0.1}s`,
+                boxSizing: "border-box",
+              }}
             >
-              <div className="h-48 bg-muted relative overflow-hidden">
+              <div className="h-48 bg-muted relative overflow-hidden rounded-t-lg">
                 {/* Replace img with LazyImage */}
                 <LazyImage
                   src={project.image}

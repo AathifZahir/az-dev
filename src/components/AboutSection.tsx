@@ -89,7 +89,7 @@ const AboutSection = () => {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
                 }}
               >
-                <Card className="h-full border-primary/10 bg-card/50 backdrop-blur-sm">
+                <Card className="h-full border-[1px] border-white/10 backdrop-blur-sm bg-card/50">
                   <CardContent className="pt-6">
                     <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
                       <GraduationCap className="w-5 h-5 text-primary" />{" "}
@@ -118,7 +118,7 @@ const AboutSection = () => {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
                 }}
               >
-                <Card className="h-full border-primary/10 bg-card/50 backdrop-blur-sm">
+                <Card className="h-full border-[1px] border-white/10 backdrop-blur-sm bg-card/50">
                   <CardContent className="pt-6">
                     <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
                       <Briefcase className="w-5 h-5 text-primary" /> Experience

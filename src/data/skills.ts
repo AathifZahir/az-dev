@@ -17,22 +17,22 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "Frontend Development",
     icon: Layout,
-    skills: ["React", "React Native", "Next.js", "Tailwind CSS"],
+    skills: ["React", "React Native", "Next.js", "Tailwind CSS", "Flutter"],
   },
   {
     name: "Backend Development",
     icon: Code,
-    skills: ["Node.js", "Express.js", "Spring Boot", "REST APIs"],
+    skills: ["Node.js", "Express.js", "NestJS", "Spring Boot", "REST APIs"],
   },
   {
     name: "Databases",
     icon: Database,
-    skills: ["MongoDB", "MySQL", "Firebase", "PostgreSQL"],
+    skills: ["MongoDB", "MySQL", "Firebase", "PostgreSQL", "Redis"],
   },
   {
     name: "Tools & Technologies",
     icon: Cpu,
-    skills: ["Git", "Agile/Scrum"],
+    skills: ["Git", "Vercel", "Agile/Scrum"],
   },
   {
     name: "Design",

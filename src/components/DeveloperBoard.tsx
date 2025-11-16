@@ -15,7 +15,7 @@ const DeveloperBoard = () => {
     >
       <div className="relative">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-primary/5 rounded-2xl"
+          className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-primary/5 rounded-2xl blur-[1px]"
           animate={{ rotate: [0, 6, 0] }}
           transition={{
             duration: 6,
@@ -26,10 +26,11 @@ const DeveloperBoard = () => {
         />
 
         <motion.div
-          className="relative bg-codebg border border-gray-200 p-6 rounded-2xl shadow-sm"
+          className="relative bg-codebg border-[3px] border-white/10 backdrop-blur-sm p-6 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.1)]"
           whileHover={{
             y: -5,
-            boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+            boxShadow:
+              "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 0 40px rgba(59,130,246,0.15)",
           }}
           transition={{ duration: 0.2 }}
         >

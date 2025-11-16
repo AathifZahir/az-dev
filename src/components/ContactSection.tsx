@@ -158,7 +158,7 @@ const ContactSection = () => {
 
           <div className="md:col-span-2">
             <form
-              className="space-y-6 bg-card p-6 rounded-lg shadow-sm border border-border"
+              className="space-y-6 bg-card p-6 rounded-lg shadow-sm border-[1px] border-white/10 backdrop-blur-sm"
               onSubmit={handleSubmit}
             >
               <input

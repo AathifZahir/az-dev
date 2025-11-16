@@ -64,7 +64,7 @@ const SkillsSection = () => {
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.name}
-              className="bg-card rounded-lg p-6 shadow-sm border border-border hover:border-primary/20 transition-colors"
+              className="bg-card rounded-lg p-6 shadow-sm border-[1px] border-white/10 backdrop-blur-sm transition-colors"
               variants={itemVariants}
               whileHover={{
                 y: -5,
