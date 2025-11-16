@@ -135,7 +135,7 @@ const HeroSection = () => {
                 >
                   <Button
                     variant="outline"
-                    className="min-w-[120px] py-3 text-base"
+                    className="min-w-[120px] py-3 text-base hover:bg-background hover:text-foreground"
                   >
                     View Projects
                   </Button>

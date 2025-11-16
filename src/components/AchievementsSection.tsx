@@ -81,7 +81,7 @@ const AchievementsSection = () => {
 
         <div
           ref={scrollContainerRef}
-          className="flex overflow-x-auto pb-6 space-x-6 scrollbar-hidden cursor-grab active:cursor-grabbing"
+          className="flex overflow-x-auto pb-6 space-x-6 scrollbar-hidden cursor-grab active:cursor-grabbing px-1"
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
@@ -97,7 +97,8 @@ const AchievementsSection = () => {
           {achievements.map((achievement, index) => (
             <motion.div
               key={index}
-              className="min-w-[350px] max-w-[350px] bg-card p-6 rounded-lg shadow-sm border border-border select-none"
+              className="min-w-[350px] max-w-[350px] bg-card p-6 rounded-lg shadow-sm border-[1px] border-white/10 backdrop-blur-sm select-none m-0.5"
+              style={{ transformOrigin: "center", boxSizing: "border-box" }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
