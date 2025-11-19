@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { skillCategories } from "@/data/skills";
+import SpotlightCard from "@/components/SpotlightCard";
 
 const SkillsSection = () => {
   const containerVariants = {
@@ -64,45 +65,46 @@ const SkillsSection = () => {
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.name}
-              className="bg-card rounded-lg p-6 shadow-sm border-[1px] border-white/10 backdrop-blur-sm transition-colors"
               variants={itemVariants}
               whileHover={{
                 y: -5,
                 boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
               }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <motion.div
-                  className="p-2 bg-primary/10 text-primary rounded-md"
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  {/* Render the icon as a component with proper props */}
-                  <category.icon className="h-5 w-5" />
-                </motion.div>
-                <h3 className="text-lg font-semibold">{category.name}</h3>
-              </div>
-              <motion.div
-                className="flex flex-wrap gap-2"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                {category.skills.map((skill) => (
-                  <motion.span
-                    key={skill}
-                    className="inline-block px-3 py-1 bg-background border border-border rounded-full text-sm"
-                    variants={skillItemVariants}
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "rgba(var(--primary), 0.05)",
-                    }}
-                    whileTap={{ scale: 0.98 }}
+              <SpotlightCard className="bg-card rounded-lg p-6 shadow-sm border-[1px] border-white/10 backdrop-blur-sm transition-colors">
+                <div className="flex items-center gap-3 mb-4">
+                  <motion.div
+                    className="p-2 bg-primary/10 text-primary rounded-md"
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    {skill}
-                  </motion.span>
-                ))}
-              </motion.div>
+                    {/* Render the icon as a component with proper props */}
+                    <category.icon className="h-5 w-5" />
+                  </motion.div>
+                  <h3 className="text-lg font-semibold">{category.name}</h3>
+                </div>
+                <motion.div
+                  className="flex flex-wrap gap-2"
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {category.skills.map((skill) => (
+                    <motion.span
+                      key={skill}
+                      className="inline-block px-3 py-1 bg-background border border-border rounded-full text-sm"
+                      variants={skillItemVariants}
+                      whileHover={{
+                        scale: 1.05,
+                        backgroundColor: "rgba(var(--primary), 0.05)",
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </motion.div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </motion.div>

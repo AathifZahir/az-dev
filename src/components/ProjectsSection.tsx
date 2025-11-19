@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ChevronUp, Code, ExternalLink, Github } from "lucide-react";
 import { projects } from "@/data/projects";
 import LazyImage from "@/components/LazyImage"; // Import our LazyImage component
+import ProjectImg from "@/components/ProjectImg";
+import SpotlightCard from "@/components/SpotlightCard";
 
 const ProjectsSection = () => {
   const [visibleProjects, setVisibleProjects] = useState(3);
@@ -26,7 +28,7 @@ const ProjectsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.slice(0, visibleProjects).map((project, index) => (
-            <div
+            <SpotlightCard
               key={project.id}
               className="bg-card rounded-lg shadow-sm border-[2px] border-white/10 backdrop-blur-sm card-hover m-0.5"
               style={{
@@ -34,14 +36,13 @@ const ProjectsSection = () => {
                 boxSizing: "border-box",
               }}
             >
-              <div className="h-48 bg-muted relative overflow-hidden rounded-t-lg">
-                {/* Replace img with LazyImage */}
+              <div className="bg-muted relative overflow-hidden rounded-t-lg h-48">
                 <LazyImage
                   src={project.image}
                   alt={project.title}
                   imgClassName="w-full h-48 object-cover"
                 />
-                <div className="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity z-20">
                   <div className="flex space-x-4">
                     {project.links.github && (
                       <a
@@ -124,7 +125,7 @@ const ProjectsSection = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </SpotlightCard>
           ))}
         </div>
 

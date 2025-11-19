@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import LazyImage from "./LazyImage";
 import { Links } from "@/data/links";
+import SpotlightCard from "./SpotlightCard";
 
 const AboutSection = () => {
   const resumeUrl = Links.resume;
@@ -89,7 +90,7 @@ const AboutSection = () => {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
                 }}
               >
-                <Card className="h-full border-[1px] border-white/10 backdrop-blur-sm bg-card/50">
+                <SpotlightCard className="h-full border-[1px] border-white/10 backdrop-blur-sm bg-card/50">
                   <CardContent className="pt-6">
                     <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
                       <GraduationCap className="w-5 h-5 text-primary" />{" "}
@@ -108,7 +109,7 @@ const AboutSection = () => {
                       </p>
                     </div>
                   </CardContent>
-                </Card>
+                </SpotlightCard>
               </motion.div>
 
               <motion.div
@@ -118,7 +119,7 @@ const AboutSection = () => {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
                 }}
               >
-                <Card className="h-full border-[1px] border-white/10 backdrop-blur-sm bg-card/50">
+                <SpotlightCard className="h-full border-[1px] border-white/10 backdrop-blur-sm bg-card/50">
                   <CardContent className="pt-6">
                     <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
                       <Briefcase className="w-5 h-5 text-primary" /> Experience
@@ -146,7 +147,7 @@ const AboutSection = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
+                </SpotlightCard>
               </motion.div>
             </div>
           </motion.div>
