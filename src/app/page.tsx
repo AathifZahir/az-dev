@@ -19,8 +19,8 @@ export default function Home() {
       <ProjectsSection />
       <ExperienceSection />
       <ToolsSection />
-      <AchievementsSection />
-      <FaqSection />
+      {/* <AchievementsSection /> */}
+      {/* <FaqSection /> */}
       <FooterContactSection />
     </>
   );
