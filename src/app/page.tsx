@@ -1,6 +1,4 @@
-import AchievementsSection from "@/components/AchievementsSection";
 import ExperienceSection from "@/components/ExperienceSection";
-import FaqSection from "@/components/FaqSection";
 import FloatingPlusButton from "@/components/FloatingPlusButton";
 import FooterContactSection from "@/components/FooterContactSection";
 import Hero from "@/components/Hero";
@@ -13,15 +11,23 @@ export default function Home() {
     <>
       <FloatingPlusButton />
       <div className="relative">
-        <Hero />
-        <HeroName />
+        <div className="fixed inset-x-0 bottom-0 z-0 h-screen">
+          <FooterContactSection />
+        </div>
+
+        <div className="relative z-10">
+          <div className="bg-white">
+            <div className="relative">
+              <Hero />
+              <HeroName />
+            </div>
+            <ProjectsSection />
+            <ExperienceSection />
+            <ToolsSection />
+          </div>
+          <div className="h-screen" aria-hidden />
+        </div>
       </div>
-      <ProjectsSection />
-      <ExperienceSection />
-      <ToolsSection />
-      {/* <AchievementsSection /> */}
-      {/* <FaqSection /> */}
-      <FooterContactSection />
     </>
   );
 }

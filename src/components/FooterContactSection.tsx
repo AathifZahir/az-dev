@@ -1,11 +1,41 @@
+ "use client";
+
+import { useEffect, useState } from "react";
 import { FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 export default function FooterContactSection() {
+  const [revealOffset, setRevealOffset] = useState(96);
+
+  useEffect(() => {
+    const updateRevealOffset = () => {
+      const doc = document.documentElement;
+      const viewportHeight = window.innerHeight;
+      const maxScroll = Math.max(doc.scrollHeight - viewportHeight, 1);
+      const revealStart = Math.max(maxScroll - viewportHeight, 0);
+      const progress = Math.min(
+        1,
+        Math.max(0, (window.scrollY - revealStart) / Math.max(viewportHeight, 1))
+      );
+
+      setRevealOffset((1 - progress) * 96);
+    };
+
+    updateRevealOffset();
+    window.addEventListener("scroll", updateRevealOffset, { passive: true });
+    window.addEventListener("resize", updateRevealOffset);
+
+    return () => {
+      window.removeEventListener("scroll", updateRevealOffset);
+      window.removeEventListener("resize", updateRevealOffset);
+    };
+  }, []);
+
   return (
     <footer
       id="contact"
       aria-label="Footer contact section"
-      className="h-screen bg-black"
+      className="h-full bg-black will-change-transform"
+      style={{ transform: `translateY(${revealOffset}px)` }}
     >
       <section className="grid h-full grid-cols-1 overflow-hidden bg-black lg:grid-cols-[1.02fr_1fr]">
         <div className="relative min-h-[48vh] lg:h-full p-1.5">
