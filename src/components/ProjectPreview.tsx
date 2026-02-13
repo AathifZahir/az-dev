@@ -72,10 +72,8 @@ export default function ProjectPreview({
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100">
         <div className="h-28 bg-gradient-to-t from-black/65 to-transparent sm:h-32" />
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between px-5 pb-4 text-white sm:px-6 sm:pb-5">
-          <p className="text-base font-semibold tracking-tight sm:text-lg">
-            {projectTitle}
-          </p>
-          <p className="text-xs font-medium uppercase tracking-[0.12em] text-white/90 sm:text-sm">
+          <p className="text-base font-semibold sm:text-lg">{projectTitle}</p>
+          <p className="text-xs font-medium uppercase text-white/90 sm:text-sm">
             {projectType}
           </p>
         </div>

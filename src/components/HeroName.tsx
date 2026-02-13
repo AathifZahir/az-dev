@@ -1,12 +1,12 @@
 "use client";
 
-import { Roboto } from "next/font/google";
+// import { Roboto } from "next/font/google";
 import { useEffect, useState } from "react";
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-});
+// const roboto = Roboto({
+//   subsets: ["latin"],
+//   weight: ["400"],
+// });
 
 export default function HeroName() {
   const [isShrunk, setIsShrunk] = useState(false);
@@ -30,11 +30,13 @@ export default function HeroName() {
 
   return (
     <h1
-      className={`${roboto.className} pointer-events-none fixed left-4 top-4 z-50 origin-top-left text-[clamp(4rem,14vw,15rem)] font-semibold leading-[0.86] text-white mix-blend-difference transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:left-4 lg:top-4 lg:w-[48%]`}
-      style={{ transform: isShrunk ? "scale(0.12)" : "scale(1)" }}
+      className={`pointer-events-none fixed left-4 top-4 z-100 origin-top-left text-white mix-blend-difference transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:left-4 lg:top-4`}
+      style={{ transform: isShrunk ? "scale(0.11)" : "scale(1)" }}
     >
-      <span className="block ">Aathif</span>
-      <span className="block ">Zahir</span>
+      <div className="text-[14rem] leading-[0.95] font-medium">
+        <div>Aathif</div>
+        <div>Zahir</div>
+      </div>
     </h1>
   );
 }

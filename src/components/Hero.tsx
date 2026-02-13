@@ -1,10 +1,10 @@
 export default function Hero() {
   return (
-    <main className="h-screen bg-[#ececec] p-1.5">
-      <section className="relative flex h-full flex-col overflow-hidden  bg-[#ececec] lg:flex-row">
+    <main className="h-screen bg-[#FFFFFF] p-1.5">
+      <section className="relative flex h-full flex-col overflow-hidden  bg-[#FFFFFF] lg:flex-row">
         <div className="relative flex w-full flex-col px-4 pb-2 pt-4 sm:px-6 sm:pb-2 sm:pt-5 lg:w-1/2 lg:px-7 lg:pb-2 lg:pt-6">
           <div className="mt-auto flex items-end justify-between gap-4 pt-8 text-black">
-            <p className="text-[clamp(1rem,1.25vw,2rem)] font-medium leading-tight">
+            <p className="text-[clamp(1rem,1.25vw,2rem)] font-medium">
               Web Designer &amp; Digital Creative based in France
             </p>
             <p className="whitespace-nowrap text-[clamp(1rem,1.15vw,1.8rem)] font-regular">

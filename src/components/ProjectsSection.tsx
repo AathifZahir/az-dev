@@ -6,7 +6,7 @@ export default function ProjectsSection() {
     <section
       id="projects"
       aria-label="Projects section"
-      className="bg-[#ececec] px-1.5 pb-1"
+      className="bg-[#FFFFFF] px-1.5 pb-1"
     >
       <div className="grid min-h-screen grid-cols-1 gap-1.5 bg-white lg:grid-cols-2">
         {projects.map((project) => (
