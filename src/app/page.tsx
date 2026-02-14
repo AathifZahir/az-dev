@@ -1,3 +1,4 @@
+import AchievementsSection from "@/components/AchievementsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import FloatingPlusButton from "@/components/FloatingPlusButton";
 import FooterContactSection from "@/components/FooterContactSection";
@@ -24,6 +25,7 @@ export default function Home() {
             <ProjectsSection />
             <ExperienceSection />
             <ToolsSection />
+            <AchievementsSection />
           </div>
           <div className="h-screen" aria-hidden />
         </div>

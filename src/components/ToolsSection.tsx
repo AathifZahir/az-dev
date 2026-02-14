@@ -6,7 +6,7 @@ export default function ToolsSection() {
     <section
       id="tools"
       aria-label="Tools section"
-      className="bg-[#FFFFFF] px-3 pb-20 sm:px-4 lg:px-6"
+      className="bg-[#FFFFFF] px-10 pb-45"
     >
       <div className="mx-auto w-full">
         <h2 className="text-[2rem] font-medium tracking-[-0.02em] text-[#111111]">

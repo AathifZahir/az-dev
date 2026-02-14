@@ -5,7 +5,7 @@ export default function ExperienceSection() {
     <section
       id="experience"
       aria-label="Experience section"
-      className="bg-[#FFFFFF] px-3 py-20 sm:px-4 lg:px-6 pt-35"
+      className="bg-[#FFFFFF] px-10 py-45"
     >
       <div className="mx-auto w-full">
         <p className=" text-6xl font-medium text-black tracking-tighter">

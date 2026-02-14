@@ -13,7 +13,7 @@ export default function ProjectsSection() {
           <ProjectPreview
             key={project.id}
             className="h-[67vh] min-h-[35rem] lg:h-full"
-            frameClassName="rounded-xl"
+            frameClassName="rounded-none"
             imageSrc={project.imageSrc}
             hoverImageSrc={project.hoverImageSrc}
             imageAlt={project.imageAlt}
