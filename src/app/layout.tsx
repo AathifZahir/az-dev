@@ -7,6 +7,7 @@ import {
   Plus_Jakarta_Sans,
   Roboto,
 } from "next/font/google";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -53,7 +54,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${activeFont.className} antialiased`}>{children}</body>
+      <body className={`${activeFont.className} antialiased`}>
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+      </body>
     </html>
   );
 }

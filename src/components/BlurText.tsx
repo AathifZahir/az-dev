@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ElementType } from "react";
 
 type AnimationSnapshot = Record<string, string | number>;
 
 type BlurTextProps = {
   text: string;
+  as?: ElementType;
   delay?: number;
   className?: string;
   animateBy?: "words" | "letters";
@@ -39,6 +40,7 @@ const buildKeyframes = (
 
 export default function BlurText({
   text = "",
+  as: Component = "p",
   delay = 200,
   className = "",
   animateBy = "words",
@@ -53,7 +55,7 @@ export default function BlurText({
 }: BlurTextProps) {
   const elements = animateBy === "words" ? text.split(" ") : text.split("");
   const [inView, setInView] = useState(false);
-  const ref = useRef<HTMLParagraphElement | null>(null);
+  const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -102,7 +104,7 @@ export default function BlurText({
   );
 
   return (
-    <p ref={ref} className={`blur-text ${className} flex flex-wrap`}>
+    <Component ref={ref} className={`blur-text flex flex-wrap ${className}`}>
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
         const spanTransition = {
@@ -128,7 +130,6 @@ export default function BlurText({
           </motion.span>
         );
       })}
-    </p>
+    </Component>
   );
 }
-

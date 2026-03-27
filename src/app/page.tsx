@@ -17,7 +17,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-10">
-          <div className="bg-white">
+          <div id="home" className="bg-[var(--background)] text-[var(--foreground)]">
             <div className="relative">
               <Hero />
               <HeroName />

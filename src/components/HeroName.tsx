@@ -11,58 +11,63 @@ export default function HeroName() {
   const headingRef = useRef<HTMLHeadingElement | null>(null);
   const isShrunkRef = useRef(false);
 
-  useGSAP(() => {
-    const heading = headingRef.current;
-    if (!heading) return;
+  useGSAP(
+    () => {
+      const heading = headingRef.current;
+      if (!heading) return;
 
-    let animationFrameId: number | null = null;
-    const hysteresisPx = 12;
+      let animationFrameId: number | null = null;
+      const hysteresisPx = 12;
 
-    gsap.set(heading, {
-      scale: 1,
-      transformOrigin: "top left",
-      force3D: true,
-    });
-
-    const updateShrinkState = () => {
-      const threshold = window.innerHeight * 0.1;
-      const scrollY = window.scrollY;
-      const nextIsShrunk = isShrunkRef.current
-        ? scrollY >= threshold - hysteresisPx
-        : scrollY >= threshold + hysteresisPx;
-
-      if (nextIsShrunk === isShrunkRef.current) return;
-      isShrunkRef.current = nextIsShrunk;
-
-      gsap.to(heading, {
-        scale: nextIsShrunk ? 0.11 : 1,
-        duration: 0.5,
-        ease: "power3.out",
-        overwrite: "auto",
+      gsap.set(heading, {
+        scale: 1,
+        transformOrigin: "top left",
+        force3D: true,
       });
-    };
 
-    const scheduleShrinkUpdate = () => {
-      if (animationFrameId !== null) return;
-      animationFrameId = window.requestAnimationFrame(() => {
-        animationFrameId = null;
-        updateShrinkState();
+      const updateShrinkState = () => {
+        const threshold = window.innerHeight * 0.1;
+        const scrollY = window.scrollY;
+        const nextIsShrunk = isShrunkRef.current
+          ? scrollY >= threshold - hysteresisPx
+          : scrollY >= threshold + hysteresisPx;
+
+        if (nextIsShrunk === isShrunkRef.current) return;
+        isShrunkRef.current = nextIsShrunk;
+
+        gsap.to(heading, {
+          scale: nextIsShrunk ? 0.11 : 1,
+          duration: 0.5,
+          ease: "power3.out",
+          overwrite: "auto",
+        });
+      };
+
+      const scheduleShrinkUpdate = () => {
+        if (animationFrameId !== null) return;
+        animationFrameId = window.requestAnimationFrame(() => {
+          animationFrameId = null;
+          updateShrinkState();
+        });
+      };
+
+      updateShrinkState();
+      window.addEventListener("resize", scheduleShrinkUpdate);
+      window.addEventListener("scroll", scheduleShrinkUpdate, {
+        passive: true,
       });
-    };
 
-    updateShrinkState();
-    window.addEventListener("resize", scheduleShrinkUpdate);
-    window.addEventListener("scroll", scheduleShrinkUpdate, { passive: true });
-
-    return () => {
-      if (animationFrameId !== null) {
-        window.cancelAnimationFrame(animationFrameId);
-      }
-      gsap.killTweensOf(heading);
-      window.removeEventListener("resize", scheduleShrinkUpdate);
-      window.removeEventListener("scroll", scheduleShrinkUpdate);
-    };
-  }, { scope: headingRef });
+      return () => {
+        if (animationFrameId !== null) {
+          window.cancelAnimationFrame(animationFrameId);
+        }
+        gsap.killTweensOf(heading);
+        window.removeEventListener("resize", scheduleShrinkUpdate);
+        window.removeEventListener("scroll", scheduleShrinkUpdate);
+      };
+    },
+    { scope: headingRef },
+  );
 
   return (
     <h1

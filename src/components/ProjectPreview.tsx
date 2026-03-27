@@ -27,7 +27,7 @@ export default function ProjectPreview({
 }: ProjectPreviewProps) {
   return (
     <article
-      className={`group relative isolate overflow-hidden bg-[#d9d9d9] ${className}`}
+      className={`group relative isolate overflow-hidden bg-[var(--card)] ${className}`}
     >
       <div className="absolute inset-0 scale-110">
         <Image
@@ -47,7 +47,7 @@ export default function ProjectPreview({
           sizes="100vw"
         />
         <div
-          className={`absolute inset-0 bg-white/12 backdrop-blur-xl saturate-150 ${backdropTintClassName}`}
+          className={`absolute inset-0 bg-white/12 backdrop-blur-xl saturate-150 dark:bg-black/30 ${backdropTintClassName}`}
         />
       </div>
 

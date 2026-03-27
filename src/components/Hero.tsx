@@ -85,10 +85,10 @@ export default function Hero() {
   );
 
   return (
-    <main className="h-screen bg-[#FFFFFF] p-1.5">
-      <section className="relative flex h-full flex-col overflow-hidden  bg-[#FFFFFF] lg:flex-row">
+    <main className="h-screen bg-[var(--background)] p-1.5 text-[var(--foreground)]">
+      <section className="relative flex h-full flex-col overflow-hidden bg-[var(--background)] lg:flex-row">
         <div className="relative flex w-full flex-col px-4 pb-0 pt-4 sm:px-6 sm:pb-0 sm:pt-5 lg:w-1/2 lg:px-7 lg:pb-0 lg:pt-6">
-          <div className="mt-auto flex justify-between gap-4 pt-8 text-black">
+          <div className="mt-auto flex justify-between gap-4 pt-8 text-[var(--foreground)]">
             <p className="text-lg font-medium">
               Web Designer &amp; Digital Creative based in France
             </p>
@@ -112,7 +112,7 @@ export default function Hero() {
           </div>
           <div
             ref={wipeRef}
-            className="pointer-events-none absolute inset-0 z-30 bg-white"
+            className="pointer-events-none absolute inset-0 z-30 bg-[var(--background)]"
           />
         </div>
       </section>
