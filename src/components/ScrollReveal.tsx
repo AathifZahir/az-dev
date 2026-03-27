@@ -31,7 +31,7 @@ export default function ScrollReveal({
   rotationEnd = "bottom bottom",
   wordAnimationEnd = "bottom bottom",
 }: ScrollRevealProps) {
-  const containerRef = useRef<HTMLHeadingElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const splitText = useMemo(() => {
     return children.split(/(\s+)/).map((word, index) => {
@@ -122,8 +122,8 @@ export default function ScrollReveal({
   ]);
 
   return (
-    <h2 ref={containerRef} className={containerClassName}>
+    <div ref={containerRef} className={containerClassName}>
       <p className={textClassName}>{splitText}</p>
-    </h2>
+    </div>
   );
 }

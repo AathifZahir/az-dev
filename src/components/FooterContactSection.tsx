@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import { CV_DOWNLOAD_URL } from "@/data/resume";
 import { FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -94,35 +95,48 @@ export default function FooterContactSection() {
 
           <div
             data-footer-reveal
-            className="mt-14 flex items-end justify-between gap-5"
+            className="mt-14 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between sm:gap-5"
           >
             <div className="text-xl font-semibold leading-[1.35] tracking-[-0.03em] text-[var(--footer-foreground)]">
               <p>+1 (123) 456-7890</p>
               <p>lorianhans@gmail.com</p>
             </div>
 
-            <div className="flex items-center gap-5 text-xl text-[var(--footer-foreground)]">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-4 text-xl text-[var(--footer-foreground)]">
               <a
-                href="#"
-                aria-label="Instagram"
-                className="transition-opacity hover:opacity-70"
+                href={CV_DOWNLOAD_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.02em] text-[var(--footer-muted)] underline decoration-[var(--footer-muted)] underline-offset-[0.28em] transition-colors hover:text-[var(--footer-foreground)] hover:decoration-[var(--footer-foreground)] focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--footer-foreground)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--footer-background)]"
               >
-                <FaInstagram />
+                <span aria-hidden className="text-[var(--footer-foreground)]">
+                  ↳
+                </span>
+                Download CV
               </a>
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="transition-opacity hover:opacity-70"
-              >
-                <FaLinkedinIn />
-              </a>
-              <a
-                href="#"
-                aria-label="X"
-                className="transition-opacity hover:opacity-70"
-              >
-                <FaXTwitter />
-              </a>
+              <div className="flex items-center gap-5">
+                <a
+                  href="#"
+                  aria-label="Instagram"
+                  className="transition-opacity hover:opacity-70"
+                >
+                  <FaInstagram />
+                </a>
+                <a
+                  href="#"
+                  aria-label="LinkedIn"
+                  className="transition-opacity hover:opacity-70"
+                >
+                  <FaLinkedinIn />
+                </a>
+                <a
+                  href="#"
+                  aria-label="X"
+                  className="transition-opacity hover:opacity-70"
+                >
+                  <FaXTwitter />
+                </a>
+              </div>
             </div>
           </div>
         </div>

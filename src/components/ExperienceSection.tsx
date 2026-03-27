@@ -112,20 +112,13 @@ export default function ExperienceSection() {
           ideas into intuitive, scalable web experiences.
         </p>
 
-        <div data-exp-reveal className="mt-24 flex items-end justify-between">
+        <div data-exp-reveal className="mt-24 flex items-end">
           <h2
             data-exp-text
             className="text-[2rem] font-semibold text-[var(--foreground)]"
           >
             Experience
           </h2>
-          <button
-            type="button"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--muted-foreground)] transition-opacity hover:opacity-70"
-          >
-            <span aria-hidden>↳</span>
-            <span data-exp-text>Download CV</span>
-          </button>
         </div>
 
         <div className="mt-6">

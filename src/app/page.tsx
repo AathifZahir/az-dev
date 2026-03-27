@@ -27,7 +27,11 @@ export default function Home() {
             <ToolsSection />
             <AchievementsSection />
           </div>
-          <div className="h-screen" aria-hidden />
+          <div
+            id="footer-sentinel"
+            className="h-screen"
+            aria-hidden
+          />
         </div>
       </div>
     </>
