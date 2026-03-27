@@ -8,8 +8,8 @@ const SECTION_LINKS = [
   { id: "home", label: "Home" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
-  { id: "tools", label: "Tools" },
-  { id: "achievements", label: "Awards" },
+  { id: "skills", label: "Skills" },
+  { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
 ];
 

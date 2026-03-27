@@ -21,6 +21,7 @@ export default function ProjectsSection() {
             projectType={project.projectType}
             backdropImageClassName={project.backdropImageClassName}
             previewImageClassName={project.previewImageClassName}
+            href={project.href}
           />
         ))}
       </div>

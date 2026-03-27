@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import ToolCard from "@/components/ToolCard";
-import { tools } from "@/data/tools";
+import { featuredTools } from "@/data/tools";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -68,8 +68,8 @@ export default function ToolsSection() {
   return (
     <section
       ref={sectionRef}
-      id="tools"
-      aria-label="Tools section"
+      id="skills"
+      aria-label="Skills section"
       className="bg-[var(--background)] px-10 pb-45 text-[var(--foreground)]"
     >
       <div className="mx-auto w-full">
@@ -77,11 +77,11 @@ export default function ToolsSection() {
           data-tools-header
           className="text-[2rem] font-medium tracking-[-0.02em] text-[var(--foreground)]"
         >
-          Tools
+          Skills
         </h2>
 
         <div className="mt-8 grid grid-cols-1 gap-1.5 lg:grid-cols-2">
-          {tools.map((tool) => {
+          {featuredTools.map((tool) => {
             const Icon = tool.icon;
 
             return (

@@ -98,7 +98,7 @@ export default function AchievementsSection() {
           data-ach-header
           className="text-[2rem] font-semibold text-[var(--foreground)]"
         >
-          Awards
+          Achievements
         </h2>
 
         <div className="mt-6 sm:mt-8">

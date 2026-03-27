@@ -6,6 +6,7 @@ type ProjectPreviewProps = {
   imageAlt?: string;
   projectTitle?: string;
   projectType?: string;
+  href?: string;
   className?: string;
   backdropTintClassName?: string;
   backdropImageClassName?: string;
@@ -19,6 +20,7 @@ export default function ProjectPreview({
   imageAlt = "Project preview",
   projectTitle = "Project Title",
   projectType = "Project Type",
+  href,
   className = "",
   backdropTintClassName = "",
   backdropImageClassName = "",
@@ -29,6 +31,15 @@ export default function ProjectPreview({
     <article
       className={`group relative isolate overflow-hidden bg-[var(--card)] ${className}`}
     >
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="absolute inset-0 z-30"
+          aria-label={`${projectTitle} (opens in a new tab)`}
+        />
+      ) : null}
       <div className="absolute inset-0 scale-110">
         <Image
           src={imageSrc}

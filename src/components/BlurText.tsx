@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useEffect, useMemo, useRef, useState, type ElementType } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ComponentProps,
+  type ElementType,
+} from "react";
 
 type AnimationSnapshot = Record<string, string | number>;
 
@@ -122,8 +129,16 @@ export default function BlurText({
             className="inline-block will-change-[transform,filter,opacity]"
             key={`${segment}-${index}`}
             initial={fromSnapshot}
-            animate={inView ? animateKeyframes : fromSnapshot}
-            transition={spanTransition}
+            animate={
+              (inView ? animateKeyframes : fromSnapshot) as ComponentProps<
+                typeof motion.span
+              >["animate"]
+            }
+            transition={
+              spanTransition as ComponentProps<
+                typeof motion.span
+              >["transition"]
+            }
             onAnimationComplete={
               index === elements.length - 1 ? onAnimationComplete : undefined
             }

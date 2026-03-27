@@ -12,12 +12,15 @@ export default function Home() {
     <>
       <FloatingPlusButton />
       <div className="relative">
-        <div className="fixed inset-x-0 bottom-0 z-0 h-screen">
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-0 h-screen">
           <FooterContactSection />
         </div>
 
-        <div className="relative z-10">
-          <div id="home" className="bg-[var(--background)] text-[var(--foreground)]">
+        <div className="pointer-events-none relative z-10">
+          <div
+            id="home"
+            className="pointer-events-auto bg-[var(--background)] text-[var(--foreground)]"
+          >
             <div className="relative">
               <Hero />
               <HeroName />
@@ -29,7 +32,7 @@ export default function Home() {
           </div>
           <div
             id="footer-sentinel"
-            className="h-screen"
+            className="pointer-events-none h-screen"
             aria-hidden
           />
         </div>

@@ -90,7 +90,7 @@ export default function Hero() {
         <div className="relative flex w-full flex-col px-4 pb-0 pt-4 sm:px-6 sm:pb-0 sm:pt-5 lg:w-1/2 lg:px-7 lg:pb-0 lg:pt-6">
           <div className="mt-auto flex justify-between gap-4 pt-8 text-[var(--foreground)]">
             <p className="text-lg font-medium">
-              Web Designer &amp; Digital Creative based in France
+              Web Designer &amp; Digital Creative based in Sri Lanka
             </p>
             <p className="whitespace-nowrap text-md font-regular">
               Selected Work &darr;
